@@ -1,0 +1,22 @@
+# Maven (Backend)
+**/target/
+*.log
+
+# Node (Frontend)
+**/node_modules/
+**/build/
+
+# Betriebssystem-Dateien
+.DS_Store
+Thumbs.db
+
+# IntelliJ / Eclipse / VSCode
+.idea/
+*.iml
+.vscode/
+
+# Docker
+**/docker-compose.override.yml
+
+# Sonstiges
+.env
