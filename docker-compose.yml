@@ -13,7 +13,10 @@ services:
     volumes:
       - mysql-data:/var/lib/mysql
 
-  backend:
+  backend:           # richtig, gleiche Ebene wie mysql
+    build:
+      context: ./backend-employee
+      dockerfile: Dockerfile
     image: employee-image
     container_name: employee-container
     depends_on:
@@ -26,9 +29,9 @@ services:
       SPRING_DATASOURCE_PASSWORD: Wertzu_86
     restart: on-failure
 
-  frontend:
+  frontend:          # richtig, gleiche Ebene wie mysql und backend
     build:
-      context: ../employeeweb
+      context: ./frontend-employee
       dockerfile: Dockerfile
     image: react-ui-docker
     container_name: react-container
@@ -37,8 +40,6 @@ services:
     depends_on:
       - backend
     restart: on-failure
-
-
 
 volumes:
   mysql-data:
