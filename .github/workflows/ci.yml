@@ -11,22 +11,26 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-    - name: Set up JDK 21
-      uses: actions/setup-java@v3
-      with:
-        java-version: '21'
-        distribution: 'temurin'
+      - name: Set up JDK 21
+        uses: actions/setup-java@v3
+        with:
+          java-version: '21'
+          distribution: 'temurin'
 
-    - name: Build Backend with Maven
-      run: |
-        cd backend-employee
-        ./mvnw clean package
+      - name: Build Backend with Maven
+        run: |
+          cd backend-employee
+          chmod +x mvnw
+          ./mvnw clean package
 
-    - name: Set up Docker Buildx
-      uses: docker/setup-buildx-action@v3
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
 
-    - name: Docker Compose Build
-      run: docker compose build
+      - name: Docker Compose Build
+        run: docker compose build
+
+      - name: Docker Compose Up (optional)
+        run: docker compose up -d
