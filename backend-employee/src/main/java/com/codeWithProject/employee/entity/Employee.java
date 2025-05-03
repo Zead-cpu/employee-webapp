@@ -8,7 +8,7 @@ import jakarta.persistence.Id;
 import lombok.Data;
 
 @Entity
-@Data               // damit wit getter Setter Contructor toString nicht schreiben müssen
+@Data               // damit wit getter Setter, Contructor , toString nicht schreiben müssen
 public class Employee {
 
     @Id
