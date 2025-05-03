@@ -20,10 +20,12 @@ jobs:
           java-version: '21'
           distribution: 'temurin'
 
+      - name: Make Maven Wrapper executable
+        run: chmod +x backend-employee/mvnw
+
       - name: Build Backend with Maven
         run: |
           cd backend-employee
-          chmod +x mvnw
           ./mvnw clean package
 
       - name: Set up Docker Buildx
