@@ -1,38 +1,58 @@
 name: CI Docker Compose
 
+# Wann der Workflow ausgeführt werden soll:
 on:
   push:
-    branches: [ master ]
+    branches: [ master ]        # Bei jedem Push auf den master-Branch
   pull_request:
-    branches: [ master ]
+    branches: [ master ]        # Auch bei Pull Requests auf master
 
 jobs:
   docker-compose-build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest      # Der Job läuft in einer Ubuntu-Umgebung
 
     steps:
+      # 1. Repository auschecken (Code von GitHub laden)
       - name: Checkout repository
         uses: actions/checkout@v3
 
+      # 2. Java 21 Umgebung einrichten
       - name: Set up JDK 21
         uses: actions/setup-java@v3
         with:
           java-version: '21'
           distribution: 'temurin'
 
+      # 3. Maven Wrapper ausführbar machen (wichtig für Linux)
       - name: Make Maven Wrapper executable
         run: chmod +x backend-employee/mvnw
 
+      # 4. Backend (Spring Boot) mit Maven bauen
       - name: Build Backend with Maven
         run: |
           cd backend-employee
           ./mvnw clean package
 
+      # 5. Frontend-Abhängigkeiten installieren (npm install)
+      - name: Install Frontend dependencies
+        run: |
+          cd frontend-react
+          npm install
+
+      # 6. Frontend bauen (React)
+      - name: Build Frontend
+        run: |
+          cd frontend-react
+          npm run build
+
+      # 7. Docker Buildx vorbereiten (erweiterter Docker-Build)
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
+      # 8. Docker Compose Build ausführen (Backend + Frontend Images bauen)
       - name: Docker Compose Build
         run: docker compose build
 
+      # 9. Docker Compose starten (optional)
       - name: Docker Compose Up (optional)
         run: docker compose up -d
