@@ -36,13 +36,13 @@ jobs:
       # 5. Frontend-Abhängigkeiten installieren (npm install)
       - name: Install Frontend dependencies
         run: |
-          cd frontend-react
+          cd frontend-employee
           npm install
 
       # 6. Frontend bauen (React)
       - name: Build Frontend
         run: |
-          cd frontend-react
+          cd frontend-employee
           npm run build
 
       # 7. Docker Buildx vorbereiten (erweiterter Docker-Build)
