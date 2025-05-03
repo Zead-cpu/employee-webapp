@@ -18,7 +18,7 @@ const PostUser =() => {
     const handleInputChange = (event) => {
         const {name, value} = event.target ;
         setFormData ({
-            ... formData,
+            ...formData,
             [name]: value,
         })
     };
