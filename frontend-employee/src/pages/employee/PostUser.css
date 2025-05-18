@@ -1,24 +1,26 @@
-
+/* Das äußere Container-Element für das Formular */
 .center-form {
-    display : flex ;
-    flex-direction : column;
-    align-items : center;
-    justify-content: center;
-    height: 90vh;
+    display: flex;                       /* Flexbox-Layout aktivieren */
+    flex-direction: column;             /* Elemente untereinander anordnen */
+    align-items: center;                /* Inhalt horizontal zentrieren */
+    justify-content: center;            /* Inhalt vertikal zentrieren */
+    height: 90vh;                       /* 90 % der Höhe vom sichtbaren Bildschirm */
 }
 
+/* Das tatsächliche Formular im Inneren */
 .center-form Form {
-    max-width: 400px;
-    width: 100%;
-    padding: 20px;
-    border: 1px solid #ccc;
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    text-align: center;
+    max-width: 400px;                   /* Maximale Breite des Formulars */
+    width: 100%;                        /* Nimmt die volle Breite ein (bis max 400px) */
+    padding: 20px;                      /* Innenabstand (Platz rund um den Inhalt) */
+    border: 1px solid #ccc;             /* Dünner grauer Rand */
+    background-color: #fff;             /* Weißer Hintergrund */
+    border-radius: 5px;                 /* Abgerundete Ecken */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);  /* Leichter Schatten */
+    text-align: center;                 /* Text im Formular zentrieren */
 }
 
+/* Styling für die Eingabefelder (z. B. Textfelder) im Formular */
 .center-form Form .form-control {
-    margin-bottom: 20px;
-    padding: 10px;
+    margin-bottom: 20px;                /* Abstand nach unten zwischen den Feldern */
+    padding: 10px;                      /* Innenabstand im Eingabefeld */
 }

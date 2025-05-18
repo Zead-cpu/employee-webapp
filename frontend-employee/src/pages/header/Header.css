@@ -1,22 +1,23 @@
-/* Style the navbar background and brand 
+/* Hintergrundfarbe der Navigationsleiste (Navbar) */
 .navbar {
-background-color: #343a40;
+    background-color: #343a40;  /* dunkles Grau */
 }
 
+/* Stil für das Marken-Logo (links in der Navbar) */
 .navbar .navbar-brand {
-color : #fff;
+    color: #fff;                /* weiße Schriftfarbe */
 }
 
-/* Style the navigation links */
+/* Stil für die Navigationslinks in der Navbar */
 .navbar .nav-link {
-    color : #fff !important;   /* White text Color*/
-    text-decoration : none !important;
-    margin-right: 20px;
+    color: #fff !important;         /* weiße Schrift, !important = überschreibt andere Regeln */
+    text-decoration: none !important; /* keine Unterstreichung */
+    margin-right: 20px;             /* Abstand zwischen den Links nach rechts */
 }
 
-/* Add media query small screens */
+/* Spezieller Stil für kleine Bildschirme (z. B. Handy) */
 @media (max-width: 576px) {
     .navbar .nav-link {
-        margin-right: 0;    /*Remove margin for small screens */
+        margin-right: 0;           /* Abstand rechts entfernen auf kleinen Geräten */
     }
 }
